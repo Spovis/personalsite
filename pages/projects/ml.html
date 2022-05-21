@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../../images/icon.png">
+    <link rel="stylesheet" href="../../css/styles.css">
+    <title>Machine Learning</title>
+</head>
+<body>
+    <h1>Machine Learning</h1>
+    <p><a href="https://github.com/Spovis/MachineLearningAttempt">source code</a></p>
+    <div>
+        <div id="leftbox">
+            <h3>What is this?</h3>
+            <p>A very simple machine learning algorithm inspired by <a href="https://www.youtube.com/watch?v=BOZfhUcNiqk">this video.</a> Although this was not a very complex example, it was really fun to make as well as (I think) fun to watch. The basic concept is that there is a population of "dots" which are attempting to learn how to navigate a given course with obstacles and eventually reach a goal. Over a series of generations, they slowly get better.</p>
+            <h3>How do the dots know where to move?</h3>
+            <p>Each dot has a long list of inputs which it goes through frame by frame. EG, maybe it accelerates slightly up and to the left in the first frame, then stright up the second, and so on. For the first generation, these lists are randomly generated. The dots immediatly die if they come into contact with the walls.</p>
+            <h3>How do they learn?</h3>
+            <p>After each generation, the dots are ranked based on how close they came to their goal (the big blue dot at the top). Those that did the best are more likely to "reproduce" into the next generation. Any children inherit that list of inputs from their parents, and then slightly randomly mutate them. Over time, the mutations which get it closer to the goal are more likely to continue to pass along their "genes". Essentially it's survival of the fittest.</p>
+            <h3>What's with the colors?</h3>
+            <p>Each dot inherits not only the path that its parent took but also its color. Also, colors are fun.</p>
+        </div>
+        <div id="rightbox">
+            <video controls src="../../videos/mlupdated.webm"><p>Your browser does not suppert HTML5 video.</p></video>
+        </div>
+    </div>
+    <div id="homelink"><p><a href="../../index.html">Homepage</a></p><p><a href="..//projects.html">Projects</a></p></div>
+</body>
+</html>
