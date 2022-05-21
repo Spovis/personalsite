@@ -1,0 +1,37 @@
+/*#2C363F #A663CC #23B5D3 is a good combo*/
+
+* {
+    background-color: #2C363F;
+    font-family: "Times New Roman", sans-serif;
+    color: white;
+    text-align: center;
+    /*border: 2px solid red;*/
+}
+
+h1 {
+    font-size: 40px;
+    margin: 4%
+}
+
+a {
+    /* the default shade of blue looks atrotious with the color scheme */
+    background-color: transparent;
+    color: #23B5D3;
+}
+
+img {
+    max-width: 100%;
+}
+
+.project {
+    border: 3px solid #A663CC;
+    height: 30em;
+    width: 20em;
+}
+
+#homelink {
+    font-size: large;
+    position: absolute;
+    bottom: 40px;
+
+}
