@@ -5,12 +5,11 @@
     font-family: "Times New Roman", sans-serif;
     color: white;
     text-align: center;
-    /*border: 2px solid red;*/
 }
 
 h1 {
     font-size: 40px;
-    margin: 4%
+    margin-top: 4%
 }
 
 a {
@@ -29,9 +28,35 @@ img {
     width: 20em;
 }
 
+.sidescroller {
+    float: left;
+    position: relative;
+    left: 20px;
+}
+
 #homelink {
+    margin: auto;
     font-size: large;
     position: absolute;
-    bottom: 40px;
+    bottom: 4%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 
+#rightbox {
+    float: right;
+    position: relative;
+    right: 5%;
+    width: 40%;
+    height: 70%;
+}
+
+#leftbox {
+    float: left;
+    position: relative;
+    border: 7px solid #A663CC;
+    left: 5%;
+    width: 40%;
+    height: 70%;
+    padding: 1%;
 }
