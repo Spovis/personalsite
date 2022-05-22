@@ -20,6 +20,7 @@ a {
 
 img {
     max-width: 100%;
+    max-height: 80%;
 }
 
 html, body {
@@ -27,7 +28,7 @@ html, body {
 }
 
 .project {
-    border: 3px solid #A663CC;
+    border: 3px ridge #A663CC;
     float: left;
     margin-right: 1em;
     margin-left: 1em;
@@ -56,15 +57,15 @@ html, body {
     position: relative;
     right: 5%;
     width: 40%;
-    height: 70%;
+    max-height: 80%;
+    overflow:hidden;
 }
 
 #leftbox {
     float: left;
     position: relative;
-    border: 7px solid #A663CC;
+    border: 7px outset #A663CC;
     left: 5%;
     width: 40%;
-    height: 70%;
     padding: 1%;
 }
