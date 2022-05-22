@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../../images/icon.png">
+    <link rel="stylesheet" href="../../css/styles.css">
+    <title>Collatz Visualizer</title>
+</head>
+<body>
+    <h1>Collatz Conjecture visualizer</h1>
+    <p><a href="https://github.com/Spovis/collatz/">source code</a></p>
+    <div>
+        <div id="leftbox">
+            <h3>What is it?</h3>
+            <p>This is a visual representation of the Collatz conjecture. The essential foundation of the conjecture is that you start with a random positive integer, and then apply 2 rules.<br><br>
+                If the number is even, you divide it by two. <br>
+                If the number is odd, you multiply it by three and then add one.<br><br>
+            You repeat this over and over. Go ahead, try it right now. For example, if you start with 9, you get the sequence 9, 28, 14, 7, 22, 11, 34, 17, 52, 26, 13, 40, 20, 10, 5, 16, 8, 4, 2, 1, 4, 2, 1, etc.<br>
+        Theoretically, every possible starting number will eventually get stuck in a cycle of 4, 2, 1, but that has never been proven or disproven.</p>
+            <h3>How does it work?</h3>
+            This visualizer picks random starting numbers and draws a graph of the path they take to reach that cycle. Each dendrite represents an individual starting number. After each step, the path it takes rotates slightly in a different direction based on whether it was an odd or even number.<br><br>
+            For more info on the conjecture, see <a href="https://www.youtube.com/watch?v=094y1Z2wpJg">this</a> video by Veritasium.
+        </div>
+        <div id="rightbox">
+            <img src="../../images/collatz.gif" alt="A visual graph of the collatz conjecture.">
+        </div>
+    </div>
+    <div id="homelink"><p><a href="../../index.html">Homepage</a></p><p><a href="../projects.html">Projects</a></p></div>
+</body>
+</html>
