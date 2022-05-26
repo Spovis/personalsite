@@ -53,10 +53,12 @@ img {
     justify-content: space-between;
     border-style: none none solid none;
     color:#23B5D3;
+    margin-bottom: 1em;
 }
 
 .taskbar {
     display: flex;
+    margin-bottom: 1em;
 }
 
 .button {
