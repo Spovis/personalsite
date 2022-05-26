@@ -23,33 +23,81 @@ img {
     max-height: 80%;
 }
 
-html, body {
-    height: 90%;
+.flexcontainer {
+    display: flex;
+    flex-direction: column;
 }
 
 .project {
     border: 3px ridge #A663CC;
     float: left;
-    margin-right: 1em;
-    margin-left: 1em;
-    height: 30em;
+    margin: 1em;
+    height:30em;
     width: 20em;
+    max-width: 20em;
+    flex: auto;
 }
 
 .sidescroller {
+    display: flex;
+    flex: auto;
     float: left;
     position: relative;
-    width: 100%;
-    height: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.topmenu {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    border-style: none none solid none;
+    color:#23B5D3;
+}
+
+.taskbar {
+    display: flex;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #23B5D3;
+    margin: 5px;
+    padding: 10px 20px;
+    border-radius: 15%;
+    border: 2px solid white;
+}
+
+.button:hover {
+    background-color: #596875;
+    border: 2px solid #A663CC;
+    text-decoration: none;
+}
+
+.button p {
+    background-color: transparent;
+    color: white;
+    text-decoration: none;
+    font-size: larger;
+}
+
+.socials {
+    width: 5em;
+    display: flex;
+    align-items: center;
+
+}
+
+.phantom {
+    width: 5em; /*this needs to be the same as width of .socials so that taskbar is centered*/
 }
 
 #homelink {
+    flex:auto;
     margin: auto;
     font-size: large;
-    position: absolute;
-    bottom: 0px;
-    left: 50%;
-    transform: translate(-50%,-50%);
 }
 
 #rightbox {
