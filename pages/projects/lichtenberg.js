@@ -27,75 +27,8 @@ window.addEventListener('mousemove', function(event) {
 window.addEventListener('resize', function(event) {
     canvas.width = this.window.innerWidth;
     canvas.height = this.window.innerHeight;
-    init();
+
 });
-
-/* function Circle(radius, x, y, dx, dy) {
-    this.radius = radius;
-    this.originalRadius = radius;
-    this.maxRadius = 60;
-    this.x = x;
-    this.y = y;
-    this.dx = dx;
-    this.dy = dy;
-    this.color = colorArray[Math.floor(Math.random()*colorArray.length)];
-    this.draw = function() {
-
-        c.beginPath();
-        c.arc(this.x,this.y,this.radius,0,Math.PI * 2, false);
-        c.fillStyle = this.color;
-        c.fill();
-        this.x += this.dx;
-        this.y -= this.dy;
-        if (this.x > (innerWidth-this.radius) || this.x < this.radius) {
-            this.dx = -this.dx
-        }
-        if (this.y > (innerHeight-this.radius) || this.y < this.radius) {
-            this.dy = -this.dy
-        }
-
-        //interactivity
-        if (Math.abs(this.x - mouse.x) < 100 && Math.abs(this.y - mouse.y) < 100) {
-            if (this.radius < this.maxRadius) {
-                this.radius++;
-                this.radius++;
-            }
-        }
-        else {
-            if (this.radius > this.originalRadius) {
-                this.radius--;
-            }
-        }
-
-
-    }
-}
-
-var circles = [];
-
-function init() {
-    circles = [];
-    for (var i = 0; i < 800; i++) {
-        var radius = (Math.random()+1)*4;
-        var x = (Math.random() * (window.innerWidth-(2*radius))) + radius;
-        var y = (Math.random() * (window.innerHeight-2*radius)) + radius;
-        var dx = (Math.random()-0.5) * 5;
-        var dy = (Math.random()-0.5) * 5;
-        circles.push(new Circle(radius, x, y, dx, dy));
-    }
-}
-
-
-function animate() {
-    c.clearRect(0,0,innerWidth,innerHeight)
-    for (var i = 0; i < circles.length; i++){
-        circles[i].draw();
-    }
-    requestAnimationFrame(animate);
-}
-
-init();
-animate(); */
 
 segmentArray = [];
 
@@ -117,6 +50,7 @@ function Segment(x, y, width, endx, endy) {
 }
 
 function segmentsIntersect(a,b,c,d,p,q,r,s) {
+    /*
     var det, gamma, lambda;
     det = (c - a) * (s - q) - (r - p) * (d - b);
     if (det === 0) {
@@ -125,7 +59,8 @@ function segmentsIntersect(a,b,c,d,p,q,r,s) {
       lambda = ((s - q) * (r - a) + (p - r) * (s - b)) / det;
       gamma = ((b - d) * (r - a) + (c - a) * (s - b)) / det;
       return (0 < lambda && lambda < 1) && (0 < gamma && gamma < 1);
-    }
+    }*/
+    return false;
   };
 
 
@@ -135,6 +70,9 @@ function addNewSegment(x,y, length) {
         var endy = y + ((mouse.y - y) / (innerHeight/length));
         endx = endx + ((Math.random()-0.5) * 40);
         endy = endy + ((Math.random()-0.5) * 40);
+        var factor = Math.pow(((Math.pow(length, 2))/(Math.pow((endx - x), 2) + Math.pow((endy - y), 2))), 0.5);
+        endx = endx + ((endx - x) * factor);
+        endy = endy + ((endy - y) * factor);
         return [endx, endy];
     }
     var tries = 10;
@@ -142,16 +80,21 @@ function addNewSegment(x,y, length) {
         var point = generateEndpoint();
         var endx = point[0];
         var endy = point[1];
+        var intersects = false;
         for (var i = 0; i < segmentArray.length; i++) {
             if (segmentsIntersect(x,y,endx,endy,segmentArray[i].x,segmentArray[i].y,segmentArray[i].endx,segmentArray[i].endy) && tries > 0) {
+                intersects = true;
                 tries--;
-                tryEndpoint();
+
             }
-            else if (tries <= 0) {
-                return false;
-            }
+            if (intersects && tries > 0) {tryEndpoint;}
         }
-        return [endx, endy];
+        if (!intersects){
+            return [endx, endy];
+        }
+        else {
+            return false;
+        }
 
     }
     var end = tryEndpoint();
@@ -159,7 +102,7 @@ function addNewSegment(x,y, length) {
 }
 
 function removeLastSegment() {
-    if (segmentArray.length > 200) {
+    if (segmentArray.length > 100) {
         segmentArray.shift();
     }
 }
@@ -170,10 +113,10 @@ function animate() {
         segmentArray[i].draw();
     }
 
-    var index = Math.ceil(Math.random() * Math.ceil(segmentArray.length/5));
+    var index = Math.ceil(Math.random() * Math.ceil(segmentArray.length/2));
     index = segmentArray.length - index;
     var lastSeg = segmentArray[index];
-    addNewSegment(lastSeg.endx, lastSeg.endy, 60);
+    addNewSegment(lastSeg.endx, lastSeg.endy, 20);
     removeLastSegment();
     requestAnimationFrame(animate);
 }
