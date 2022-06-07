@@ -23,6 +23,10 @@ img {
     max-height: 80%;
 }
 
+canvas {
+    border:1px solid #23B5D3;
+}
+
 .flexcontainer {
     display: flex;
     flex-direction: column;
@@ -95,6 +99,8 @@ img {
 .phantom {
     width: 5em; /*this needs to be the same as width of .socials so that taskbar is centered*/
 }
+
+
 
 #homelink {
     flex:auto;
